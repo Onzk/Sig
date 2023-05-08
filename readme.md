@@ -33,7 +33,7 @@ pip install scrapy
 `fastApi` est disponible sur PyPI et peut être installé avec `pip`:
 
 ```
-pip install fastapi
+pip install fastapi[all]
 ```
 
 `mysql-connector-python` est disponible sur PyPI et peut être installé avec `pip`:
@@ -93,10 +93,12 @@ Plus d'informations sont disponibles sur le lancement d'une application faite av
 
 Après avoir [lancé l'application](#lancement), vous pouvez effectué des requêtes avec votre testeur de api (`Postman`, `Insomnia`, etc...).
 
-La documentation de l'api est disponible sur l'adresse spécifié lors du lancement.
+L'api démarre sur une adresse lors du lancement.
 ```
 INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
 ```
+
+Vous devez ajouter `/docs` au lien pour accéder à la documentation de l'api et savoir comment elle fonctionne.
 
 ## A propos
 

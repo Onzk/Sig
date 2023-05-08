@@ -39,15 +39,19 @@ def execute(query: str):
     # On enlève les espaces au début
     # et à la fin de la commande.
     query = query.strip()
+    
+    mysqldb.reconnect()
+    
+    connexion = mysqldb.cursor()
 
     # On exécute la commande.
     connexion.execute(query)
 
     # Si la commande est un 'SELECT',
-    # on récupère les données trouvées dans
-    # la base de données.
     if query.startswith('SELECT'):
 
+        # on récupère les données trouvées dans
+        # la base de données.
         return connexion.fetchall()
 
     # Sinon, on valide les opérations

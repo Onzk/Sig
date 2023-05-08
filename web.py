@@ -38,7 +38,7 @@ crawler.crawl()
 @app.get('/sites')
 async def sites_index():
     """
-    Cette fonction est chargée de récupérer tous les
+    Cette route est chargée de récupérer tous les
     sites de la base de données.
 
     """
@@ -61,7 +61,7 @@ async def sites_index():
 @app.post('/sites')
 async def sites_store(site: Site):
     """
-    Cette fonction est chargée d'insérer un
+    Cette route est chargée d'insérer un
     site dans la base de données.
 
     """
@@ -86,7 +86,7 @@ async def sites_store(site: Site):
 @app.put('/sites/{id}')
 async def sites_update(site: Site, id: int):
     """
-    Cette fonction est chargée de mettre à jour 
+    Cette route est chargée de mettre à jour 
     un site existant dans la base de données.
 
     """
@@ -111,7 +111,7 @@ async def sites_update(site: Site, id: int):
 @app.delete('/sites/{id}')
 async def sites_detele(id: int):
     """
-    Cette fonction est chargée de supprimer 
+    Cette route est chargée de supprimer 
     un site existant de la base de données.
 
     """
@@ -136,7 +136,7 @@ async def sites_detele(id: int):
 @app.get('/sites/{id}')
 async def sites_show(id: int):
     """
-    Cette fonction est chargée de récupérer
+    Cette route est chargée de récupérer
     un site existant dans la base de données.
 
     """
@@ -157,7 +157,7 @@ async def sites_show(id: int):
 @app.get('/scrap')
 async def articles_scrap():
     """
-    Cette fonction est chargée d'épurer une
+    Cette route est chargée d'épurer une
     chaîne de caractères de tout contenu html.
 
     """
@@ -167,7 +167,7 @@ async def articles_scrap():
 @app.get('/articles')
 async def articles_index():
     """
-    Cette fonction est chargée récupérer tous
+    Cette route est chargée récupérer tous
     les articles qui sont dans la base de données.
 
     """
@@ -191,7 +191,7 @@ async def articles_index():
 @app.delete('/articles')
 async def articles_delete():
     """
-    Cette fonction est chargée de supprimer 
+    Cette route est chargée de supprimer 
     tous les articles dans la base de données.
 
     """

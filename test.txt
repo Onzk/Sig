@@ -1,0 +1,9 @@
+"https://ar1info.fr/": {
+        "id" : 3,
+        "articles": "article",
+        "article_link": "h4 a::attr(href)",
+        "title": "h1.title.single > a::text",
+        "content": "article.small.single > p,h2",
+        "published_at": ".mg-blog-date::text",
+        "next_page" : ".next.page-numbers::attr(href)"
+    }

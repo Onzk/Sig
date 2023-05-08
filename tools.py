@@ -16,7 +16,7 @@ import config.config as config
 
 # Définit l'emplacement du fichier
 # contenant la <carte> des sites.
-SITE_MAP_LOCATION = "scrapper/map.json"
+SITE_MAP_LOCATION = "scraper/map.json"
 
 
 def html_clean(text: str):
