@@ -40,8 +40,11 @@ def execute(query: str):
     # et à la fin de la commande.
     query = query.strip()
     
+    # On rafraîchit la connexion 
+    # à la base de données.
     mysqldb.reconnect()
     
+    # On rétablit le curseur.
     connexion = mysqldb.cursor()
 
     # On exécute la commande.
