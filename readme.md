@@ -1,4 +1,4 @@
-# Sig: Scrapeur d'articles en ligne
+# Sig : Scrapeur d'articles en ligne
 ![scrapy logo image](https://upload.wikimedia.org/wikipedia/fr/1/16/Scrapy_logo.png)
 
 [![pyversions](https://img.shields.io/pypi/pyversions/scrapy-playwright.svg)](https://pypi.python.org/pypi/scrapy-playwright)
@@ -6,7 +6,7 @@
 ## A propos
 
 Sig est un programme basé sur [Scrapy](https://github.com/scrapy/scrapy) permettant
-de récupréer des articles en ligne et de les insérés dans une base de données.
+de récupérer des articles en ligne et de les insérés dans une base de données.
 
 Il est facilement configurable et adapté pour prendre en compte, l'ajout de nouveaux
 sites de news où trouver des articles.

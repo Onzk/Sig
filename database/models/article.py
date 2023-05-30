@@ -57,7 +57,7 @@ class Article():
 
     def prepare(self):
         """
-        Cette fonction est chargée de d'épurer les valeurs
+        Cette fonction est chargée d'épurer les valeurs
         des attributs de l'objet courrant.
 
         """
