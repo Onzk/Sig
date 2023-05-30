@@ -3,11 +3,27 @@
 
 [![pyversions](https://img.shields.io/pypi/pyversions/scrapy-playwright.svg)](https://pypi.python.org/pypi/scrapy-playwright)
 
+## A propos
 
 Sig est un programme basé sur [Scrapy](https://github.com/scrapy/scrapy) permettant
 de récupréer des articles en ligne et de les insérés dans une base de données.
+
 Il est facilement configurable et adapté pour prendre en compte, l'ajout de nouveaux
-sites de news où trouver des articles. 
+sites de news où trouver des articles.
+
+Ce projet a été réalisé dans le cadre scolaire par des étudiants. 
+
+Université : Université Catholique de l'Afrique de l'Ouest - Unité Universitaire du Togo ([UCAO-UUT](https://ucao-uut.tg/)).
+
+Professeur en charge : Mr ANAKPA Manawa
+
+Cours : Programmation python
+
+Institu : Institut Supérieur des Technologies Informatiques et Numériques (ISTIN)
+
+Parcours : Développement d'applications - Licence 3
+
+Année scolaire : 2022-2023 
 
 
 ## Requis
@@ -123,19 +139,3 @@ INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
 ```
 
 Vous devez ajouter `/docs` au lien pour accéder à la documentation de l'api et savoir comment elle fonctionne.
-
-## A propos
-
-Ce projet a été réalisé dans le cadre scolaire par des étudiants. 
-
-Université : Université Catholique de l'Afrique de l'Ouest - Unité Universitaire du Togo ([UCAO-UUT](https://ucao-uut.tg/)).
-
-Professeur en charge : Mr ANAKPA Manawa
-
-Cours : Programmation python
-
-Institu : Institut Supérieur des Technologies Informatiques et Numériques (ISTIN)
-
-Parcours : Développement d'applications - Licence 3
-
-Année scolaire : 2022-2023
