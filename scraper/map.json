@@ -1,10 +1,23 @@
 {
     "https://www.20minutes.fr/": {
-        "id" : 1,
+        "id": 1,
         "articles": "article",
         "article_link": "a::attr(href)",
         "title": ".nodeheader-title::text",
         "content": ".qiota_reserve.content > p",
+        "category": ".subheader-breadcrumb-item a::text",
+        "author": "span.authorsign-label::text",
         "published_at": "time::text"
+    },
+    "https://ar1info.fr/": {
+        "id": 2,
+        "articles": "article",
+        "article_link": "h4 a::attr(href)",
+        "title": "h1.title.single > a::text",
+        "content": "article.small.single > p,h2",
+        "category": ".mg-header .mg-blog-category a::text",
+        "author": ".media-heading a::text",
+        "published_at": ".mg-blog-date::text",
+        "next_page": ".next.page-numbers::attr(href)"
     }
 }

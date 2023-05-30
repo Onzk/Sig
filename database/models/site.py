@@ -95,15 +95,11 @@ class Site(BaseModel):
         Cette fonction renvoie le script SQL 
         pour supprimer un site dont l'identifiant est
         spécifié, ainsi que les articles associés, 
-        dans la base de données.
+        dans la base de données, automatiquement.
 
         """
         return f"""
-
-            DELETE FROM articles 
-
-                WHERE site_id={id};
-
+                
             DELETE FROM sites
 
                 WHERE id={id};

@@ -1,11 +1,13 @@
 # Sig: Scrapeur d'articles en ligne
+![scrapy logo image](https://upload.wikimedia.org/wikipedia/fr/1/16/Scrapy_logo.png)
+
 [![pyversions](https://img.shields.io/pypi/pyversions/scrapy-playwright.svg)](https://pypi.python.org/pypi/scrapy-playwright)
 
 
 Sig est un programme basé sur [Scrapy](https://github.com/scrapy/scrapy) permettant
 de récupréer des articles en ligne et de les insérés dans une base de données.
-Il est facilement configurable et adapté pour prendre en compte, l'ajout de nouveau
-site de news où trouver les articles. 
+Il est facilement configurable et adapté pour prendre en compte, l'ajout de nouveaux
+sites de news où trouver des articles. 
 
 
 ## Requis
@@ -18,31 +20,53 @@ Le programme peut tout aussi bien fonctionner sous Windows comme sous un systèm
 * python >= 3.11.2
 * scrapy >= 2.8.0
 * fastApi >= 0.95.1
+* uvicorn >= 0.22.0
 * mysql-connector-python >= 8.0.33
 * lxml >= 4.9.2
 
 
 ## Installation
 
-`scrapy` est disponible sur PyPI et peut être installé avec `pip`:
+Pour pouvoir utiliser cette application, vous aurez besoin de certains modules python.
+
+
+### - Installation rapide
+
+Pour une installation rapide de tous les modules dont vous aurez besoin, placez-vous à la racine du projet et faites :
+
+```
+pip install -r requirements.txt
+```
+
+### - Installation progressive
+
+Pour une installation progressive de tous les modules dont vous aurez besoin, tapez les commandes suivantes pour installer :
+
+* `scrapy` qui est disponible sur PyPI et peut être installé avec `pip`:
 
 ```
 pip install scrapy
 ```
 
-`fastApi` est disponible sur PyPI et peut être installé avec `pip`:
+* `fastApi` qui est disponible sur PyPI et peut être installé avec `pip`:
 
 ```
 pip install fastapi[all]
 ```
 
-`mysql-connector-python` est disponible sur PyPI et peut être installé avec `pip`:
+* `uvicorn` qui est disponible sur PyPI et peut être installé avec `pip`:
+
+```
+pip install uvicorn
+```
+
+* `mysql-connector-python` qui est disponible sur PyPI et peut être installé avec `pip`:
 
 ```
 pip install mysql-connector-python
 ```
 
-`lxml` est disponible sur PyPI et peut être installé avec `pip`:
+* `lxml` qui est disponible sur PyPI et peut être installé avec `pip`:
 
 ```
 pip install lxml
@@ -109,6 +133,8 @@ Université : Université Catholique de l'Afrique de l'Ouest - Unité Universita
 Professeur en charge : Mr ANAKPA Manawa
 
 Cours : Programmation python
+
+Institu : Institut Supérieur des Technologies Informatiques et Numériques (ISTIN)
 
 Parcours : Développement d'applications - Licence 3
 

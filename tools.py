@@ -26,12 +26,9 @@ def html_clean(text: str):
 
     """
     return lxml.html.clean.Cleaner(
-
         style=True).clean_html(lxml.html.fromstring(
-
             re.sub(re.compile('<.*?>'), '', text))
-
-    ).text_content().replace('\n', '').replace("'", "\\'").replace("  ", "")
+    ).text_content().replace('\n', '').replace("'", "\\'").replace("  ", "").strip()
 
 
 def read_site_map():

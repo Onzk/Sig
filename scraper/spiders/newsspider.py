@@ -121,6 +121,12 @@ class NewsSpider(scrapy.Spider):
 
                     self.site['content']).getall()),
 
+                category="".join(response.css(
+
+                    self.site['category']).getall()),
+
+                author=response.css(self.site['author']).get(),
+
                 published_at=response.css(self.site['published_at']).get(),
 
                 url=response.url,

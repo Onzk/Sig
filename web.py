@@ -157,8 +157,12 @@ async def sites_show(id: int):
 @app.get('/scrap')
 async def articles_scrap():
     """
-    Cette route est chargée d'épurer une
-    chaîne de caractères de tout contenu html.
+    Cette route est chargée de lancer le 
+    webscraping, sur les sites stockés dans 
+    la base de données et configurés
+    dans le programme.
+
+    Elle représente le coeur du programme.
 
     """
     return {"success": True, "data": crawler.crawl()}
@@ -167,7 +171,7 @@ async def articles_scrap():
 @app.get('/articles')
 async def articles_index():
     """
-    Cette route est chargée récupérer tous
+    Cette route est chargée de récupérer tous
     les articles qui sont dans la base de données.
 
     """
@@ -177,7 +181,7 @@ async def articles_index():
         data = db.execute(Article.select())
 
         # On renvoie les articles récupérés.
-        return {"success": True, "data": data}
+        return {"success": True, "count": len(data),  "data": data}
 
     except Exception as e:
 
@@ -188,17 +192,104 @@ async def articles_index():
         return {"success": False, "data": {}, "error": e}
 
 
-@app.delete('/articles')
-async def articles_delete():
+@app.get('/articles/category/{category}')
+async def articles_category(category: str):
     """
-    Cette route est chargée de supprimer 
-    tous les articles dans la base de données.
+    Cette route est chargée de récupérer tous
+    les articles qui sont dans la base de données
+    et appartenant à une catégorie.
 
     """
     try:
 
-        # On supprime les articles.
-        db.execute(Article.delete())
+        # On récupère les articles, appartenant à la catégorie
+        # spécifiée dans l'url.
+        data = db.execute(Article.select(
+            field="category",
+            operator="LIKE",
+            slug=f"'%{category}%'"))
+
+        # On renvoie les articles récupérés.
+        return {"success": True, "count": len(data), "data": data}
+
+    except Exception as e:
+
+        # On annule les changements, en cas d'erreur.
+        db.rollback()
+
+        # On renvoie le message d'erreur, en cas d'erreur.
+        return {"success": False, "data": {}, "error": e}
+
+
+@app.get('/articles/author/{author}')
+async def articles_author(author: str):
+    """
+    Cette route est chargée de récupérer tous
+    les articles qui sont dans la base de données
+    et publiés par un auteur.
+
+    """
+    try:
+
+        # On récupère les articles,
+        # publiés par un auteur.
+        data = db.execute(Article.select(
+            field="author",
+            operator="LIKE",
+            slug=f"'%{author}%'"))
+
+        # On renvoie les articles récupérés.
+        return {"success": True, "count": len(data), "data": data}
+
+    except Exception as e:
+
+        # On annule les changements, en cas d'erreur.
+        db.rollback()
+
+        # On renvoie le message d'erreur, en cas d'erreur.
+        return {"success": False, "data": {}, "error": e}
+
+
+@app.get('/articles/site/{id}')
+async def articles_site(id: int):
+    """
+    Cette route est chargée récupérer tous
+    les articles qui sont dans la base de données
+    et provenant d'un site spécifique.
+
+    """
+    try:
+
+        # On récupère les articles, 
+        # provenant du site spécifié.
+        data = db.execute(Article.select(
+            field="id_site",
+            operator="=",
+            slug=id))
+
+        # On renvoie les articles récupérés.
+        return {"success": True, "count": len(data), "data": data}
+
+    except Exception as e:
+
+        # On annule les changements, en cas d'erreur.
+        db.rollback()
+
+        # On renvoie le message d'erreur, en cas d'erreur.
+        return {"success": False, "data": {}, "error": e}
+
+
+@app.delete('/articles/{id}')
+async def articles_delete(id: int):
+    """
+    Cette route est chargée de supprimer 
+    un article dans la base de données.
+
+    """
+    try:
+
+        # On supprime l'article.
+        db.execute(Article.delete(id))
 
         # On renvoie que tout s'est bien passé.
         return {"success": True, "data": None}

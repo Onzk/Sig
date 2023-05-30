@@ -27,10 +27,16 @@ class Article():
     # Définit le contenu de l'article
     description: str
 
+    # Définit la catégorie de l'article
+    category: str
+
+    # Définit l'auteur de l'article
+    author: str
+
     # Définit l'heure de publication de l'article
     published_at: str
 
-    def __init__(self, id_site: int, title: str, url: str, description: str, published_at: str) -> None:
+    def __init__(self, id_site: int, title: str, url: str, description: str, category: str, author: str, published_at: str) -> None:
         """
         Cette fonction est le constructeur de la classe.
 
@@ -42,6 +48,10 @@ class Article():
         self.url = url
 
         self.description = description
+
+        self.category = category
+
+        self.author = author
 
         self.published_at = published_at
 
@@ -57,10 +67,14 @@ class Article():
 
         self.description = html_clean(self.description)
 
+        self.category = html_clean(self.category)
+
+        self.author = html_clean(self.author)
+
         self.published_at = html_clean(self.published_at)
 
     @staticmethod
-    def select(id=None):
+    def select(field=None, slug=None, operator="="):
         """
         Cette fonction renvoie le script SQL 
         pour récupérer tous les articles, ou un seul, si 
@@ -70,15 +84,17 @@ class Article():
         """
         query = f"""
         
-            SELECT articles.id, name, title, articles.url, description, published_at, articles.created_at 
+            SELECT articles.id, name, title, articles.url, description,
+                
+                category, author, published_at, articles.created_at 
 
                 FROM articles, sites 
 
-                WHERE sites.id = articles.id_site;
+                WHERE sites.id = articles.id_site
 
             """
 
-        return query if id == None else f"""{query} WHERE id={id}"""
+        return query if field == None else f"""{query} AND {field} {operator} {slug}"""
 
     def insert(self):
         """
@@ -95,26 +111,28 @@ class Article():
         # contenues dans les attributs de l'objet dans la base de données.
         return f"""
     
-            INSERT INTO articles(id_site, title, url, description, published_at, created_at) 
+            INSERT INTO articles(id_site, title, url, description, category, author, published_at, created_at) 
 
                 VALUES({self.id_site}, '{self.title}','{self.url}', 
-
-                    '{self.description}', '{self.published_at}',NOW()
+                
+                    '{self.description}','{self.category}',
+                
+                    '{self.author}', '{self.published_at}', NOW()
 
                 )
 
             """
 
     @staticmethod
-    def delete():
+    def delete(id: int):
         """
         Cette fonction renvoie le script SQL 
-        pour supprimer tous les articles de 
-        la base de données.
+        pour supprimer un articles de 
+        la base de données avec l'identifiant id.
 
         """
         return f"""
             
-            DELETE FROM articles
+            DELETE FROM articles WHERE id = {id}
             
             """
