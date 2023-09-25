@@ -6,7 +6,7 @@
 ## A propos
 
 Sig est un programme basé sur [Scrapy](https://github.com/scrapy/scrapy) permettant
-de récupérer des articles en ligne et de les insérés dans une base de données.
+de récupérer des articles en ligne et de les insérer dans une base de données.
 
 Il est facilement configurable et adapté pour prendre en compte, l'ajout de nouveaux
 sites de news où trouver des articles.
